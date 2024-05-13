@@ -1,0 +1,103 @@
+.hero-main-slider {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  .slider-dots-wrapper {
+    display: none;
+  }
+
+  .slick-slider,
+  .slick-list,
+  .slick-slide,
+  .slick-track {
+    height: 100%;
+  }
+
+  .slide {
+    .slide-asset {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    top: 0;
+    @include leftToRight(0);
+    z-index: 2;
+    @include ForMarginPadding(padding, 0px, 0px, 0px, 0px);
+
+    h1 {
+      @include ForTextShadow("large");
+      @include ForMarginPadding(margin, 0px, 0px, 10px, 0px);
+    }
+
+    a,
+    button {
+      @include ForMarginPadding(margin, 10px, 0px, 0px, 0px);
+    }
+  }
+}
+
+@include for-large-screens() {
+  .hero-main-slider {
+    .content {
+      @include ForMarginPadding(padding, 120px, 60px, 0px, 60px);
+    }
+  }
+}
+@include for-desktop() {
+  .hero-main-slider {
+    .content {
+      @include ForMarginPadding(padding, 120px, 60px, 0px, 60px);
+    }
+  }
+}
+@include for-laptop() {
+  .hero-main-slider {
+    .content {
+      @include ForMarginPadding(padding, 120px, 60px, 0px, 60px);
+    }
+  }
+}
+
+//tablet
+@include for-tablet-landscape() {
+  .hero-main-slider {
+    .content {
+      @include ForMarginPadding(padding, 120px, 60px, 0px, 60px);
+    }
+  }
+}
+@include for-tablet-portrait() {
+  .hero-main-slider {
+    .content {
+      @include ForMarginPadding(padding, 120px, 60px, 0px, 60px);
+    }
+  }
+}
+
+//mobile
+@include for-phone-landscape() {
+  .hero-main-slider {
+    .content {
+      @include ForMarginPadding(padding, 120px, 20px, 0px, 20px);
+    }
+  }
+}
+@include for-phone-portrait() {
+  .hero-main-slider {
+    .content {
+      @include ForMarginPadding(padding, 120px, 20px, 0px, 20px);
+    }
+  }
+}

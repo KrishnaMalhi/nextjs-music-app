@@ -1,0 +1,678 @@
+.music-controller-container {
+  width: 100%;
+  background-color: $black;
+  @include ForMarginPadding(padding, 40px, 72px, 40px, 72px);
+  .controlls-container-outter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .controlls-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .play-pause-controller {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .play-pause-button,
+        .play-previous-button,
+        .play-next-button {
+          background-color: transparent;
+          border: none;
+          padding: 0;
+        }
+        .play-pause-button {
+          @include ForMarginPadding(margin, 0px, 6px, 0px, 6px);
+        }
+      }
+      .track-name {
+        color: $primary-text;
+        font-size: 14px;
+        line-height: 19.6px;
+        font-weight: 603;
+      }
+      .length-controller {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+        @include ForMarginPadding(margin, 0px, 0px, 0px, 0px);
+        span {
+          @include ForMarginPadding(margin, 0px, 5px, 0px, 5px);
+          color: $primary-text;
+        }
+        .track-length {
+          cursor: pointer;
+          -webkit-appearance: none;
+          width: 100%;
+          height: 2px;
+          background-color: $track-background;
+
+          &::-webkit-slider-runnable-track {
+            background: linear-gradient(
+              to left,
+              $track-background 0%,
+              $track-background
+                calc((1 - var(--currentTime) / var(--videoDuration)) * 100%),
+              $white
+                calc((1 - var(--currentTime) / var(--videoDuration)) * 100%),
+              $white 100%
+            );
+          }
+
+          &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 2px;
+            height: 2px;
+            cursor: pointer;
+          }
+        }
+      }
+      .volume-controller {
+        display: flex;
+        align-items: center;
+        .track-volume {
+          cursor: pointer;
+          -webkit-appearance: none;
+          width: 100%;
+          height: 2px;
+          background-color: $track-background;
+
+          &::-webkit-slider-runnable-track {
+            background: linear-gradient(
+              to left,
+              $track-background 0%,
+              $track-background calc((1 - var(--volume)) * 100%),
+              $white calc((1 - var(--volume)) * 100%),
+              $white 100%
+            );
+          }
+
+          &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 2px;
+            height: 2px;
+            background-color: transparent;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .download-btn-container {
+      background-color: $track-background;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      @include ForMarginPadding(padding, 30px, 72px, 30px, 72px);
+    }
+  }
+  .tab-controlls-container-outter,
+  .mob-controlls-container-outter {
+    display: none;
+  }
+}
+
+@include for-laptop() {
+  .music-controller-container {
+    .controlls-container-outter {
+      .controlls-container {
+        .length-controller {
+          width: 40%;
+        }
+        .volume-controller {
+          width: 15%;
+        }
+      }
+      .download-btn-container {
+        @include ForMarginPadding(padding, 30px, 72px, 30px, 40px);
+        .download-btn {
+          width: 200px;
+        }
+      }
+    }
+  }
+}
+
+//tablet
+@include for-tablet-landscape() {
+  .music-controller-container {
+    .tab-controlls-container-outter {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      @include ForMarginPadding(padding, 30px, 72px, 30px, 72px);
+      .controlls-container {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .track-name {
+          color: $primary-text;
+          font-size: 14px;
+          line-height: 19.6px;
+          font-weight: 603;
+        }
+        .length-controller {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          @include ForMarginPadding(margin, 0px, 0px, 0px, 0px);
+          span {
+            @include ForMarginPadding(margin, 0px, 5px, 0px, 5px);
+            color: $primary-text;
+          }
+          .track-length {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 2px;
+            background-color: $track-background;
+
+            &::-webkit-slider-runnable-track {
+              background: linear-gradient(
+                to left,
+                $track-background 0%,
+                $track-background
+                  calc((1 - var(--currentTime) / var(--videoDuration)) * 100%),
+                $white
+                  calc((1 - var(--currentTime) / var(--videoDuration)) * 100%),
+                $white 100%
+              );
+            }
+
+            &::-webkit-slider-thumb {
+              -webkit-appearance: none;
+              width: 2px;
+              height: 2px;
+              cursor: pointer;
+            }
+          }
+        }
+        .play-pause-controller {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          .play-pause-button,
+          .play-previous-button,
+          .play-next-button {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+          }
+          .play-pause-button {
+            @include ForMarginPadding(margin, 0px, 20px, 0px, 20px);
+          }
+        }
+      }
+      .download-volume-container {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .volume-controller {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          span {
+            border: none;
+            background-color: $dark-gray;
+            @include ForMarginPadding(padding, 15px, 15px, 15px, 15px);
+            @include ForMarginPadding(margin, 0px, 5px, 0px, 0px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .track-volume {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 2px;
+            background-color: $track-background;
+
+            &::-webkit-slider-runnable-track {
+              background: linear-gradient(
+                to left,
+                $track-background 0%,
+                $track-background calc((1 - var(--volume)) * 100%),
+                $white calc((1 - var(--volume)) * 100%),
+                $white 100%
+              );
+            }
+
+            &::-webkit-slider-thumb {
+              -webkit-appearance: none;
+              width: 2px;
+              height: 2px;
+              background-color: transparent;
+              cursor: pointer;
+            }
+          }
+        }
+        .download-button {
+          border: none;
+          background-color: $dark-gray;
+          @include ForMarginPadding(padding, 15px, 15px, 15px, 15px);
+          @include ForMarginPadding(margin, 0px, 0px, 0px, 15px);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+    .controlls-container-outter,
+    .mob-controlls-container-outter {
+      display: none;
+    }
+  }
+}
+@include for-tablet-portrait() {
+  .music-controller-container {
+    .tab-controlls-container-outter {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      @include ForMarginPadding(padding, 30px, 72px, 30px, 72px);
+      .controlls-container {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .track-name {
+          color: $primary-text;
+          font-size: 14px;
+          line-height: 19.6px;
+          font-weight: 603;
+        }
+        .length-controller {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          @include ForMarginPadding(margin, 0px, 0px, 0px, 0px);
+          span {
+            @include ForMarginPadding(margin, 0px, 5px, 0px, 5px);
+            color: $primary-text;
+          }
+          .track-length {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 2px;
+            background-color: $track-background;
+
+            &::-webkit-slider-runnable-track {
+              background: linear-gradient(
+                to left,
+                $track-background 0%,
+                $track-background
+                  calc((1 - var(--currentTime) / var(--videoDuration)) * 100%),
+                $white
+                  calc((1 - var(--currentTime) / var(--videoDuration)) * 100%),
+                $white 100%
+              );
+            }
+
+            &::-webkit-slider-thumb {
+              -webkit-appearance: none;
+              width: 2px;
+              height: 2px;
+              cursor: pointer;
+            }
+          }
+        }
+        .play-pause-controller {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          .play-pause-button,
+          .play-previous-button,
+          .play-next-button {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+          }
+          .play-pause-button {
+            @include ForMarginPadding(margin, 0px, 20px, 0px, 20px);
+          }
+        }
+      }
+      .download-volume-container {
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .volume-controller {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          span {
+            border: none;
+            background-color: $dark-gray;
+            @include ForMarginPadding(padding, 15px, 15px, 15px, 15px);
+            @include ForMarginPadding(margin, 0px, 5px, 0px, 0px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .track-volume {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 2px;
+            background-color: $track-background;
+
+            &::-webkit-slider-runnable-track {
+              background: linear-gradient(
+                to left,
+                $track-background 0%,
+                $track-background calc((1 - var(--volume)) * 100%),
+                $white calc((1 - var(--volume)) * 100%),
+                $white 100%
+              );
+            }
+
+            &::-webkit-slider-thumb {
+              -webkit-appearance: none;
+              width: 2px;
+              height: 2px;
+              background-color: transparent;
+              cursor: pointer;
+            }
+          }
+        }
+        .download-button {
+          border: none;
+          background-color: $dark-gray;
+          @include ForMarginPadding(padding, 15px, 15px, 15px, 15px);
+          @include ForMarginPadding(margin, 0px, 0px, 0px, 15px);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+    .controlls-container-outter,
+    .mob-controlls-container-outter {
+      display: none;
+    }
+  }
+}
+
+//mobile
+@include for-phone-landscape() {
+  .music-controller-container {
+    .mob-controlls-container-outter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include ForMarginPadding(padding, 30px, 32px, 30px, 32px);
+      .controlls-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .track-name {
+          color: $primary-text;
+          font-size: 14px;
+          line-height: 19.6px;
+          font-weight: 603;
+        }
+        .length-controller {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          @include ForMarginPadding(margin, 0px, 0px, 0px, 0px);
+          span {
+            @include ForMarginPadding(margin, 0px, 5px, 0px, 5px);
+            color: $primary-text;
+          }
+          .track-length {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 2px;
+            background-color: $track-background;
+
+            &::-webkit-slider-runnable-track {
+              background: linear-gradient(
+                to left,
+                $track-background 0%,
+                $track-background
+                  calc((1 - var(--currentTime) / var(--videoDuration)) * 100%),
+                $white
+                  calc((1 - var(--currentTime) / var(--videoDuration)) * 100%),
+                $white 100%
+              );
+            }
+
+            &::-webkit-slider-thumb {
+              -webkit-appearance: none;
+              width: 2px;
+              height: 2px;
+              cursor: pointer;
+            }
+          }
+        }
+        .play-pause-download-volume-container {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 10px;
+          .play-pause-controller {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            .play-pause-button,
+            .play-previous-button,
+            .play-next-button {
+              background-color: transparent;
+              border: none;
+              padding: 0;
+            }
+            .play-pause-button {
+              @include ForMarginPadding(margin, 0px, 20px, 0px, 20px);
+            }
+          }
+          .download-volume-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .volume-controller {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              span {
+                border: none;
+                background-color: $dark-gray;
+                @include ForMarginPadding(padding, 15px, 15px, 15px, 15px);
+                @include ForMarginPadding(margin, 0px, 5px, 0px, 0px);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+              .track-volume {
+                -webkit-appearance: none;
+                width: 100%;
+                height: 2px;
+                background-color: $track-background;
+
+                &::-webkit-slider-runnable-track {
+                  background: linear-gradient(
+                    to left,
+                    $track-background 0%,
+                    $track-background calc((1 - var(--volume)) * 100%),
+                    $white calc((1 - var(--volume)) * 100%),
+                    $white 100%
+                  );
+                }
+
+                &::-webkit-slider-thumb {
+                  -webkit-appearance: none;
+                  width: 2px;
+                  height: 2px;
+                  background-color: transparent;
+                  cursor: pointer;
+                }
+              }
+            }
+            .download-button {
+              border: none;
+              background-color: $dark-gray;
+              @include ForMarginPadding(padding, 15px, 15px, 15px, 15px);
+              @include ForMarginPadding(margin, 0px, 0px, 0px, 15px);
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+    .controlls-container-outter,
+    .tab-controlls-container-outter {
+      display: none;
+    }
+  }
+}
+@include for-phone-portrait() {
+  .music-controller-container {
+    .mob-controlls-container-outter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include ForMarginPadding(padding, 30px, 32px, 30px, 32px);
+      .controlls-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .track-name {
+          color: $primary-text;
+          font-size: 14px;
+          line-height: 19.6px;
+          font-weight: 603;
+        }
+        .length-controller {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          @include ForMarginPadding(margin, 0px, 0px, 0px, 0px);
+          span {
+            @include ForMarginPadding(margin, 0px, 5px, 0px, 5px);
+            color: $primary-text;
+          }
+          .track-length {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 2px;
+            background-color: $track-background;
+
+            &::-webkit-slider-runnable-track {
+              background: linear-gradient(
+                to left,
+                $track-background 0%,
+                $track-background
+                  calc((1 - var(--currentTime) / var(--videoDuration)) * 100%),
+                $white
+                  calc((1 - var(--currentTime) / var(--videoDuration)) * 100%),
+                $white 100%
+              );
+            }
+
+            &::-webkit-slider-thumb {
+              -webkit-appearance: none;
+              width: 2px;
+              height: 2px;
+              cursor: pointer;
+            }
+          }
+        }
+        .play-pause-download-volume-container {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 10px;
+          .play-pause-controller {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            .play-pause-button,
+            .play-previous-button,
+            .play-next-button {
+              background-color: transparent;
+              border: none;
+              padding: 0;
+            }
+            .play-pause-button {
+              @include ForMarginPadding(margin, 0px, 20px, 0px, 20px);
+            }
+          }
+          .download-volume-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .volume-controller {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              span {
+                border: none;
+                background-color: $dark-gray;
+                @include ForMarginPadding(padding, 15px, 15px, 15px, 15px);
+                @include ForMarginPadding(margin, 0px, 5px, 0px, 0px);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+              .track-volume {
+                -webkit-appearance: none;
+                width: 100%;
+                height: 2px;
+                background-color: $track-background;
+
+                &::-webkit-slider-runnable-track {
+                  background: linear-gradient(
+                    to left,
+                    $track-background 0%,
+                    $track-background calc((1 - var(--volume)) * 100%),
+                    $white calc((1 - var(--volume)) * 100%),
+                    $white 100%
+                  );
+                }
+
+                &::-webkit-slider-thumb {
+                  -webkit-appearance: none;
+                  width: 2px;
+                  height: 2px;
+                  background-color: transparent;
+                  cursor: pointer;
+                }
+              }
+            }
+            .download-button {
+              border: none;
+              background-color: $dark-gray;
+              @include ForMarginPadding(padding, 15px, 15px, 15px, 15px);
+              @include ForMarginPadding(margin, 0px, 0px, 0px, 15px);
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+    .controlls-container-outter,
+    .tab-controlls-container-outter {
+      display: none;
+    }
+  }
+}

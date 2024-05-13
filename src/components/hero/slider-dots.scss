@@ -1,0 +1,67 @@
+.slider-dots-wrapper {
+  width: 100%;
+  position: absolute;
+  @include leftToRight(0px);
+  z-index: 2;
+}
+
+.slider-dots {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  @include ForMarginPadding(margin, 0px, 0px, 0px, 0px);
+  @include ForMarginPadding(padding, 0px, 0px, 0px, 0px);
+  height: 28px;
+
+  li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    @include ForMarginPadding(margin, 0px, 8px, 0px, 8px);
+    @include ForMarginPadding(padding, 0px, 0px, 0px, 0px);
+    position: relative;
+
+    span {
+      height: 5px;
+      width: 30px;
+      background: $track-background;
+      @include transitions(0.5s);
+      cursor: pointer;
+      @include ForShadow("large");
+    }
+
+    &.active {
+      span {
+        background: $primary-text;
+      }
+    }
+  }
+}
+
+//mobile
+@include for-phone-landscape() {
+  .slider-dots {
+    li {
+      @include ForMarginPadding(margin, 0px, 4px, 0px, 4px);
+
+      span {
+        height: 5px;
+        width: 20px;
+      }
+    }
+  }
+}
+@include for-phone-portrait() {
+  .slider-dots {
+    li {
+      @include ForMarginPadding(margin, 0px, 4px, 0px, 4px);
+
+      span {
+        height: 5px;
+        width: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.banner-section {
+  position: relative;
+  background: $secondary;
+  height: 100vh;
+  text-align: center;
+
+  &.inner {
+    height: 750px;
+  }
+  .sliderData,.contentPlacement,img{
+    width: 100%;
+    height: auto;
+  }
+  .slider-sub-heading {
+    color: $red;
+    text-transform: uppercase;
+    @include ForMarginPadding(margin, 0px, 0px, 125px, 0px);
+  }
+  .slider-heading {
+    @include ForMarginPadding(margin, 100px, 0px, 0px, 0px);
+    font-size: $h1-font-size;
+    color: $white;
+    text-transform: uppercase;
+    font-size: 100px;
+  }
+}

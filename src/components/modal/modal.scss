@@ -1,0 +1,34 @@
+.modal-content {
+  @include ForMarginPadding(padding, 10px, 10px, 10px, 10px);
+  &.asset-modal {
+    background-color: $track-background;
+  }
+}
+
+.modal-header {
+  @include ForMarginPadding(padding, 0px, 0px, 10px, 0px);
+  border-bottom: none;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    @include ForMarginPadding(margin, 0px, 0px, 0px, 0px);
+  }
+}
+
+.modal-body {
+  @include ForMarginPadding(padding, 0px, 0px, 0px, 0px);
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    @include ForMarginPadding(margin, 0px, 0px, 0px, 0px);
+  }
+}

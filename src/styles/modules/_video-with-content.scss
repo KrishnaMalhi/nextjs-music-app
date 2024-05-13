@@ -1,0 +1,306 @@
+.video-with-content {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  height: auto;
+  .mobile-poster-heading,
+  .mobile-poster-bottom-content {
+    display: none;
+  }
+  .poster-content {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include ForMarginPadding(padding, 0px, 60px, 0px, 60px);
+    .poster-content-inner {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      .poster-left-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        .poster-left-heading {
+          color: $red;
+          text-transform: uppercase;
+          font-size: 120px;
+          line-height: 144px;
+          font-weight: 400;
+        }
+      }
+
+      .poster-right-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        .poster-right-heading {
+          color: $red;
+          text-transform: uppercase;
+          font-size: 120px;
+          line-height: 144px;
+          font-weight: 400;
+        }
+      }
+    }
+    .poster-bottom-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      .description {
+        color: $primary-text;
+        font-size: 16px;
+        line-height: 22.4px;
+        font-weight: 400;
+        text-align: center;
+        width: 430px;
+      }
+    }
+  }
+}
+
+@include for-large-screens() {
+  .video-with-content {
+    .poster-content {
+      .poster-content-inner {
+        .poster-left-content {
+          .poster-left-heading {
+            font-size: 115px;
+            line-height: 130px;
+          }
+        }
+        .poster-right-content {
+          .poster-right-heading {
+            font-size: 115px;
+            line-height: 130px;
+          }
+        }
+      }
+      .poster-bottom-content {
+        .description {
+          width: 410px;
+        }
+      }
+    }
+  }
+}
+@include for-laptop() {
+  .video-with-content {
+    .poster-content {
+      .poster-content-inner {
+        .poster-left-content {
+          .poster-left-heading {
+            font-size: 110px;
+            line-height: 120px;
+          }
+        }
+        .poster-right-content {
+          .poster-right-heading {
+            font-size: 110px;
+            line-height: 120px;
+          }
+        }
+      }
+      .poster-bottom-content {
+        .description {
+          width: 390px;
+        }
+      }
+    }
+  }
+}
+
+//tablet
+@include for-tablet-landscape() {
+  .video-with-content {
+    .mobile-poster-heading {
+      display: block;
+      position: absolute;
+      left: 60px;
+      top: 40%;
+      width: 40%;
+      z-index: 2;
+      .poster-heading {
+        font-size: 60px;
+        font-weight: 400;
+        line-height: 72px;
+        color: $red;
+        text-transform: uppercase;
+      }
+    }
+    .poster-content {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      .poster-content-inner {
+        width: 100%;
+        .poster-left-content {
+          display: none;
+        }
+        .poster-right-content {
+          display: none;
+        }
+      }
+      .poster-bottom-content {
+        .description {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@include for-tablet-portrait() {
+  .video-with-content {
+    .mobile-poster-heading {
+      display: block;
+      position: absolute;
+      left: 60px;
+      top: 30%;
+      width: 40%;
+      z-index: 2;
+      .poster-heading {
+        font-size: 50px;
+        font-weight: 400;
+        line-height: 72px;
+        color: $red;
+        text-transform: uppercase;
+      }
+    }
+    .poster-content {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      .poster-content-inner {
+        width: 100%;
+        .poster-left-content {
+          display: none;
+        }
+        .poster-right-content {
+          display: none;
+        }
+      }
+      .poster-bottom-content {
+        .description {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+//mobile
+@include for-phone-landscape() {
+  .video-with-content {
+    background-color: $black;
+    .mobile-poster-heading {
+      display: block;
+      @include ForMarginPadding(padding, 0px, 32px, 0px, 32px);
+      @include ForMarginPadding(margin, 94px, 0px, 0px, 0px);
+      .poster-heading {
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 36px;
+        color: $red;
+        text-transform: uppercase;
+        width: 273px;
+      }
+    }
+    .mobile-poster-bottom-content {
+      display: block;
+      @include ForMarginPadding(padding, 0px, 32px, 0px, 32px);
+      @include ForMarginPadding(margin, 20px, 0px, 20px, 0px);
+      .description {
+        width: 100%;
+        color: $primary-text;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.4px;
+      }
+    }
+    .video-component {
+      position: relative;
+      .video-box-children {
+        padding-top: 0px !important;
+        height: 100% !important;
+      }
+      .video-link {
+        .video-icon {
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: 42px;
+            height: 42px;
+            margin: 0;
+          }
+        }
+      }
+    }
+    .poster-content {
+      display: none;
+    }
+  }
+}
+@include for-phone-portrait() {
+  .video-with-content {
+    background-color: $black;
+    .mobile-poster-heading {
+      display: block;
+      @include ForMarginPadding(padding, 0px, 32px, 0px, 32px);
+      @include ForMarginPadding(margin, 94px, 0px, 0px, 0px);
+      .poster-heading {
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 36px;
+        color: $red;
+        text-transform: uppercase;
+        width: 273px;
+      }
+    }
+    .mobile-poster-bottom-content {
+      display: block;
+      @include ForMarginPadding(padding, 0px, 32px, 0px, 32px);
+      @include ForMarginPadding(margin, 20px, 0px, 20px, 0px);
+      .description {
+        width: 100%;
+        color: $primary-text;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.4px;
+      }
+    }
+    .video-component {
+      position: relative;
+      .video-box-children {
+        padding-top: 0px !important;
+        height: 100% !important;
+      }
+      .video-link {
+        .video-icon {
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: 42px;
+            height: 42px;
+            margin: 0;
+          }
+        }
+      }
+    }
+    .poster-content {
+      display: none;
+    }
+  }
+}

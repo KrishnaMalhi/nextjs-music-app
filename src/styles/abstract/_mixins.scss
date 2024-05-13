@@ -1,0 +1,107 @@
+// Transitions Mixin
+//use: @include transitions(0.5s);
+//output: transition: all 0.5s ease-in-out 0s;
+@mixin transitions($speed: 0.5s) {
+  -webkit-transition: all $speed ease-in-out;
+  -moz-transition: all $speed ease-in-out;
+  -o-transition: all $speed ease-in-out;
+  transition: all $speed ease-in-out;
+}
+
+// Border Radius
+//use: @include borderRadius(0px);
+@mixin borderRadius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -o-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+// Transform Scale
+//use: @include transform(scale(1), rotate(0deg), translate(0px, 0px));
+//output: transform: scale(1) rotate(0deg) translate(0px, 0px);
+@mixin transform($transforms...) {
+  // combine the passed transforms into a space separated list
+  $transform-list: join($transforms, null, space);
+  // print out the transforms
+  -webkit-transform: $transform-list;
+  -moz-transform: $transform-list;
+  -ms-transform: $transform-list;
+  -o-transform: $transform-list;
+  transform: $transform-list;
+}
+
+//use: @include mprl(margin,left,right,30px);
+//use: @include mprl(margin,right,left,30px);
+//output: margin-left: 30px;
+//output: margin-right: 30px;
+@mixin mprl($property, $positionL, $positionR, $value) {
+  #{$property}-#{$positionL}: $value;
+}
+
+//use: @include leftToRight(30px);
+//output: left: 30px;
+@mixin leftToRight($value) {
+  left: $value;
+}
+
+//use: @include RightToLeft(30px);
+//output: right: 30px;
+@mixin RightToLeft($value) {
+  right: $value;
+}
+
+//use: @include ForMarginPadding(padding,0,10px,0,20px);
+// use: @include ForMarginPadding(margin,0,10px,0,20px);
+//output: padding: 0,10px,0,20px;
+//output: margin: 0,10px,0,20px;
+@mixin ForMarginPadding($property, $top, $right, $bottom, $left) {
+  $rem-top: $top / $base-font-size;
+  $rem-right: $right / $base-font-size;
+  $rem-bottom: $bottom / $base-font-size;
+  $rem-left: $left / $base-font-size;
+
+  #{$property}: #{$rem-top}rem #{$rem-right}rem #{$rem-bottom}rem #{$rem-left}rem;
+}
+
+//for text-align: left or right;
+//use: @include ForDirection(text-align, left, right);
+//output: text-align:left; in EN, text-align:right;
+@mixin ForDirection($property, $ltr-value, $rtl-value) {
+  #{$property}: $ltr-value;
+}
+
+//for box-shadow: left or right;
+//use: @include ForShadow('light');
+//output: box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
+@mixin ForShadow($variant: "medium") {
+  @if ($variant == "medium") {
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  @if ($variant == "large") {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
+  }
+
+  @if ($variant == "light") {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+  }
+}
+
+//for text-shadow: left or right;
+//use: @include ForTextShadow('light');
+//output: box-text: 0px 4px 30px rgba(0, 0, 0, 0.25);
+@mixin ForTextShadow($variant: "medium") {
+  @if ($variant == "medium") {
+    text-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  @if ($variant == "large") {
+    text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
+  }
+
+  @if ($variant == "light") {
+    text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+  }
+}

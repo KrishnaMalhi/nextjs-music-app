@@ -1,0 +1,42 @@
+//layout
+// @import "./layout/main";
+//global
+@import "./globals";
+
+//Vendors
+@import "./vendors/slick-slider";
+@import "./vendors/swiper-slider";
+@import "./vendors/bootstrap";
+
+//Modules
+@import "./modules/home-hero-slider";
+@import "./modules/center-mode-video-slider";
+@import "./modules/story-section";
+@import "./modules/video-with-content";
+
+//components
+@import "@app/components/header/header.scss";
+@import "@app/components/hero/hero.scss";
+@import "@app/components/hero/slider-dots.scss";
+@import "@app/components/accordian/accordian.scss";
+@import "@app/components/buttons/download-button.scss";
+@import "@app/components/modal/modal.scss";
+@import "@app/components/footer/footer.scss";
+@import "@app/components/sliders/slick-slider.scss";
+@import "@app/components/sliders/swiper-slider.scss";
+@import "@app/components/video-component/video-component.scss";
+@import "@app/components/video-component/video-player.scss";
+@import "@app/components/music-player/music-player.scss";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $HeadingsFontFamily;
+}
+
+p {
+  font-family: $textFontFamily;
+}

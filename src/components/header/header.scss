@@ -1,0 +1,182 @@
+header {
+  position: fixed;
+
+  &::after {
+    border-bottom: 1px;
+    border-color: $primary;
+    width: auto;
+  }
+  &.scrolled {
+    background: rgba($primary, 0.8);
+    @include ForShadow("large");
+  }
+  @include ForMarginPadding(padding, 17px, 60px, 17px, 60px);
+  @include transitions(0.5s);
+  @include leftToRight(0px);
+  top: 0;
+  z-index: 9;
+  width: 100%;
+
+  .header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    a {
+      @include ForMarginPadding(margin, 0px, 10px, 0px, 0px);
+    }
+  }
+  .mobile-header-nav-container {
+    display: none;
+  }
+  .header-nav-container {
+    display: block;
+    width: 100%;
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      list-style: none;
+      margin: 0;
+      li {
+        @include ForMarginPadding(padding, 10px, 20px, 10px, 20px);
+        a {
+          text-decoration: none;
+          color: $primary-text;
+          font-size: 16px;
+          font-weight: 353;
+          line-height: 22.4px;
+          &.activeRoute {
+            text-decoration: underline !important;
+            color: $primary-text;
+            height: 2px;
+            width: inherit;
+          }
+        }
+      }
+    }
+    .close-button {
+      display: none;
+    }
+  }
+  .hamburger {
+    display: none;
+  }
+}
+
+//tablet
+@include for-tablet-landscape() {
+  header {
+    .header-nav-container {
+      ul {
+        li {
+          a {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+@include for-tablet-portrait() {
+  header {
+    .header-nav-container {
+      ul {
+        padding: 0;
+        li {
+          @include ForMarginPadding(padding, 10px, 15px, 10px, 15px);
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//mobile
+@include for-phone-landscape() {
+  header {
+    @include ForMarginPadding(padding, 17px, 20px, 17px, 20px);
+    .header-nav-container {
+      display: none;
+    }
+    .mobile-header-nav-container {
+      display: block;
+      position: absolute;
+      z-index: 9999;
+      top: 0;
+      right: 0;
+      background-color: $black;
+      height: 100vh;
+      width: 50%;
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start !important;
+        list-style: none;
+        margin: 100px 0 0 0 !important;
+        li {
+          @include ForMarginPadding(padding, 10px, 20px, 10px, 20px);
+          a {
+            text-decoration: none;
+            color: $primary-text;
+            font-size: 16px;
+            font-weight: 353;
+            line-height: 22.4px;
+          }
+        }
+      }
+      .close-button {
+        display: block;
+        @include ForMarginPadding(margin, 20px, 0px, 0px, 20px);
+      }
+    }
+    .hamburger {
+      display: block;
+      float: right;
+    }
+  }
+}
+@include for-phone-portrait() {
+  header {
+    @include ForMarginPadding(padding, 17px, 20px, 17px, 20px);
+    .header-nav-container {
+      display: none;
+    }
+    .mobile-header-nav-container {
+      display: block;
+      position: absolute;
+      z-index: 9999;
+      top: 0;
+      right: 0;
+      background-color: $black;
+      height: 100vh;
+      width: 50%;
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start !important;
+        list-style: none;
+        margin: 100px 0 0 0 !important;
+        li {
+          @include ForMarginPadding(padding, 10px, 20px, 10px, 20px);
+          a {
+            text-decoration: none;
+            color: $primary-text;
+            font-size: 16px;
+            font-weight: 353;
+            line-height: 22.4px;
+          }
+        }
+      }
+      .close-button {
+        display: block;
+        @include ForMarginPadding(margin, 20px, 0px, 0px, 20px);
+      }
+    }
+    .hamburger {
+      display: block;
+      float: right;
+    }
+  }
+}

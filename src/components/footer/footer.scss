@@ -1,0 +1,28 @@
+footer {
+  background-color: $black;
+  @include ForMarginPadding(padding, 60px, 60px, 60px, 60px);
+  position: relative;
+  width: 100%;
+
+  img {
+    @include ForMarginPadding(margin, 0px, 0px, 25px, 0px);
+  }
+  p {
+    color: $primary-text;
+    strong {
+      color: $track-background;
+    }
+  }
+}
+
+//mobile
+@include for-phone-landscape() {
+  footer {
+    @include ForMarginPadding(padding, 60px, 20px, 60px, 20px);
+  }
+}
+@include for-phone-portrait() {
+  footer {
+    @include ForMarginPadding(padding, 60px, 20px, 60px, 20px);
+  }
+}

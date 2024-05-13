@@ -1,0 +1,32 @@
+/// begin customization
+$primary: #0e0d0d;
+$secondary: #0e0d0d;
+$primary-text: #ebe8e1;
+$track-background: #4f4e4f;
+$white: #fff;
+$black: #000;
+$red: #fb1624;
+$light-background: #ebe8e1;
+$medium-grey: #717172;
+$grey: #e3dedb;
+$dark-gray: #2a2929;
+
+$theme-colors: ();
+
+/// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary": $primary,
+    "secondary": $secondary,
+    "primary-text": $primary-text,
+    "track-background": $track-background,
+    "white": $white,
+    "black": $black,
+    "red": $red,
+    "light-background": $light-background,
+    "medium-grey": $medium-grey,
+    "grey": $grey,
+    "dark-gray": $dark-gray,
+  ),
+  $theme-colors
+);

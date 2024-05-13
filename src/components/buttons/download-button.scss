@@ -1,0 +1,31 @@
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 260px;
+  background: transparent;
+  border: 2px solid $primary-text;
+  color: $primary-text;
+  @include ForMarginPadding(padding, 10px, 10px, 10px, 10px);
+  cursor: pointer;
+  @include transitions(0.5s);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+
+  .arrow {
+    @include ForMarginPadding(margin, 0px, 0px, 0px, 5px);
+  }
+}
+
+//mobile
+@include for-phone-landscape() {
+  .download-btn {
+    width: 100%;
+  }
+}
+@include for-phone-portrait() {
+  .download-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,309 @@
+.story-container {
+  position: relative;
+  .parallax-container {
+    overflow: hidden;
+    position: relative;
+    // background-color: "#ebe8e1";
+    // background-size: auto;
+    // background-attachment: scroll;
+    // background-position: center;
+    // background-repeat: no-repeat;
+    width: 100%;
+    .parallax-container-inner {
+      @include ForMarginPadding(padding, 0px, 72px, 0px, 72px);
+
+      .top-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        margin-top: 5%;
+        .top-left {
+          position: absolute;
+          display: flex;
+          justify-content: space-between;
+          z-index: 1;
+          top: 30px;
+          left: 0;
+          width: 50%;
+        }
+
+        .top-right {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 50%;
+          display: flex;
+          justify-content: center;
+        }
+      }
+
+      .text-content {
+        @include ForMarginPadding(margin, 140px, 0px, 100px, 0px);
+        position: relative;
+        z-index: 1;
+        p {
+          font-weight: 400;
+          font-size: 50px;
+          line-height: 70px;
+          color: $red;
+          text-align: justify;
+          word-spacing: 20px;
+          // letter-spacing: 5px;
+        }
+      }
+    }
+  }
+  .parallax-container-outter {
+    position: relative;
+  }
+  .bottom-content {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: absolute;
+    bottom: -150px;
+    left: 130px;
+    right: 72px;
+
+    .bottom-right {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  .story-slider-container {
+    @include ForMarginPadding(margin, 342px, 0px, 71px, 0px);
+    @include ForMarginPadding(padding, 0px, 72px, 0px, 72px);
+
+    .story-slider-container-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .swiper-slider-container-outter {
+      .slider-dots-wrapper,
+      .rightArrow,
+      .leftArrow {
+        display: none;
+      }
+      .slider-dots-wrapper {
+        .slider-dots li.active span {
+          background: $red;
+        }
+      }
+      // .swiper {
+      // .swiper-wrapper {
+      // transform: none !important;
+      // }
+      // }
+      .slide {
+        .video-component {
+          .video-link {
+            .video-icon {
+              img {
+                width: 42px;
+                height: 42px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//tablet
+@include for-tablet-landscape() {
+  .story-container {
+    .bottom-content {
+      left: 100px;
+    }
+    .parallax-container {
+      .parallax-container-inner {
+        .text-content {
+          p {
+            font-size: 38px;
+            line-height: 56px;
+          }
+        }
+      }
+    }
+    .story-slider-container {
+      .swiper-slider-container-outter {
+        .slider-dots-wrapper {
+          display: none;
+        }
+        .slide {
+          .video-component {
+            .video-link {
+              .video-icon {
+                justify-content: center;
+                align-items: center;
+                img {
+                  width: 42px;
+                  height: 42px;
+                  margin: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@include for-tablet-portrait() {
+  .story-container {
+    .bottom-content {
+      left: 100px;
+    }
+    .parallax-container {
+      .parallax-container-inner {
+        .text-content {
+          p {
+            font-size: 38px;
+            line-height: 56px;
+          }
+        }
+      }
+    }
+    .story-slider-container {
+      .swiper-slider-container-outter {
+        .slider-dots-wrapper {
+          display: none;
+        }
+        .slide {
+          .video-component {
+            .video-link {
+              .video-icon {
+                justify-content: center;
+                align-items: center;
+                img {
+                  width: 42px;
+                  height: 42px;
+                  margin: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//mobile
+@include for-phone-landscape() {
+  .story-container {
+    .parallax-container {
+      .parallax-container-inner {
+        @include ForMarginPadding(padding, 0px, 32px, 0px, 32px);
+        .top-content {
+          flex-direction: column;
+          .top-left {
+            width: 100%;
+          }
+          .top-right {
+            top: 65px;
+          }
+        }
+        .text-content {
+          p {
+            font-size: 20px;
+            line-height: 28px;
+          }
+        }
+      }
+    }
+    .bottom-content {
+      right: 32px;
+      left: 56px;
+      bottom: -70px;
+    }
+    .story-slider-container {
+      @include ForMarginPadding(padding, 0px, 32px, 0px, 32px);
+      .swiper-slider-container-outter {
+        .slider-dots-wrapper {
+          display: block;
+        }
+        .slide {
+          .video-component {
+            .video-box-children {
+              padding-top: 0px !important;
+              height: 100% !important;
+            }
+            .video-link {
+              .video-icon {
+                justify-content: center;
+                align-items: center;
+
+                img {
+                  width: 42px;
+                  height: 42px;
+                  margin: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@include for-phone-portrait() {
+  .story-container {
+    .parallax-container {
+      .parallax-container-inner {
+        @include ForMarginPadding(padding, 0px, 32px, 0px, 32px);
+        .top-content {
+          flex-direction: column;
+          .top-left {
+            width: 100%;
+          }
+          .top-right {
+            top: 65px;
+          }
+        }
+        .text-content {
+          p {
+            font-size: 20px;
+            line-height: 28px;
+          }
+        }
+      }
+    }
+    .bottom-content {
+      right: 32px;
+      left: 56px;
+      bottom: -70px;
+    }
+    .story-slider-container {
+      @include ForMarginPadding(padding, 0px, 32px, 0px, 32px);
+      .swiper-slider-container-outter {
+        .slider-dots-wrapper {
+          display: block;
+        }
+        .slide {
+          .video-component {
+            .video-box-children {
+              padding-top: 0px !important;
+              height: 100% !important;
+            }
+            .video-link {
+              .video-icon {
+                justify-content: center;
+                align-items: center;
+
+                img {
+                  width: 42px;
+                  height: 42px;
+                  margin: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
