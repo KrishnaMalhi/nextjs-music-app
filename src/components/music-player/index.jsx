@@ -52,12 +52,13 @@ const MusicPlayer = ({
       setIsMusicPlaying(false);
     }
   };
-
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     if (isPlaying) {
       handlePlayPause();
     }
   }, [isPlaying]);
+  /* eslint-enable react-hooks/exhaustive-deps */
 
   const handleVolumeChange = (e) => {
     const newVolume = parseFloat(e.target.value);
