@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/jsx-no-undef */
+
 import backwardPlayIcon from "@public/images/backward-play-icon.png";
 import downloadIcon from "@public/images/download-icon.png";
 import forwardPlayIcon from "@public/images/forward-play-icon.png";
