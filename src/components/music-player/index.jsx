@@ -43,12 +43,6 @@ const MusicPlayer = ({
     }
   }, [musicURL]);
 
-  useEffect(() => {
-    if (isPlaying) {
-      handlePlayPause();
-    }
-  }, [isPlaying]);
-
   const handlePlayPause = () => {
     if (musicRef.current.paused || musicRef.current.ended) {
       musicRef.current.play();
@@ -58,6 +52,12 @@ const MusicPlayer = ({
       setIsMusicPlaying(false);
     }
   };
+
+  useEffect(() => {
+    if (isPlaying) {
+      handlePlayPause();
+    }
+  }, [isPlaying]);
 
   const handleVolumeChange = (e) => {
     const newVolume = parseFloat(e.target.value);
